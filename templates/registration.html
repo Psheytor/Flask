@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <title>Регистрация</title>
+</head>
+<body>
+    <div class="mobile-screen">
+  <div class="header">
+    <h1>Создание аккаунта</h1>
+  </div>
+  <div class="logo"></div>
+  <form id="registration-form"  action="/check_reg" method="post">
+      <label for="name">Имя должно быть не длиннее 30 символов:</label>
+    <input type="name" id="name" name="name" placeholder="Имя" value="{{ request.form.name if request.form.name }}" required>
+    <input type="email" id="email" name="email" placeholder="Почта" value="{{ request.form.email if request.form.email }}" required>
+      <label for="password">Пароль должен содержать как минимум 1 заглавную латинскую букву и быть длиннее 5 символов:</label>
+    <input type="password" id="password" name="password" placeholder="Пароль" value="{{ request.form.password if request.form.password }}" required>
+    <input type="password" id="repassword" name="repassword" placeholder="Повторите пароль" value="{{ request.form.repassword if request.form.repassword }}" required>
+      <button type="submit" class="login-btn">Присоединиться</button>
+    <a class ="link" href="http://127.0.0.1:5000/auth" >Уже бывали здесь? Авторизируйтесь!</a>
+  </form>
+</div>
+</body>
+</html>
